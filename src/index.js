@@ -4,6 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const element = <h1>Hello world{"!"}</h1>;
+
+// function tick(){
+//   const element = (
+//     <div>
+//       <h1>Hello world!</h1>
+//       <i>{new Date().toLocaleTimeString()}</i>
+//     </div>
+//   );
+
+//   //ReactDOM.render(element, document.getElementById('clock'));
+//   ReactDOM.render(element, document.getElementById('root'));
+// }
+
+// setInterval(tick, 100);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
