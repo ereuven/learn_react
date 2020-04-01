@@ -36,7 +36,7 @@ class Clock extends React.Component {
     // }
 
     FormattedDateTime(props) {
-        const now = !!props.now ? new Date(props.now) : null;
+        const now = props.now;
 
         const date_str = !!now ? now.toLocaleDateString() : 'rendering...';
         const time_str = !!now ? now.toLocaleTimeString() : 'rendering...';
