@@ -6,7 +6,9 @@ import Clock from './components/clock/clock';
 function App() {
   return (
     <div className="App">
-      <Clock color="#2f2b2b"/>
+      <Clock color="#2f2bab"/>
+      <Clock color="red" />
+      <Clock/>
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
