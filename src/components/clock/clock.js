@@ -7,18 +7,24 @@ class Clock extends React.Component
         super(props);
         
         this.state = {
+            date: 'rendering...',
             time: 'rendering...',
         };
     }
 
     componentDidMount() {
         this.interval = setInterval(() => {
-            this.setState({time: new Date().toLocaleTimeString()});
+            const now = new Date();
+
+            this.setState({
+                date: now.toLocaleDateString(),
+                time: now.toLocaleTimeString()
+            });
         }, 100);
     }
 
     render() {
-    return (<i class="clock-text" style={{color: this.props.color}}>{this.state.time}</i>);
+    return (<i class="clock-text" style={{color: this.props.color}}>{this.state.date} {this.state.time}</i>);
     }
 }
 
