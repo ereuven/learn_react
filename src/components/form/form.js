@@ -8,6 +8,8 @@ export default class SampleForm extends React.Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        this.uncontrolled_text = React.createRef();
     }
 
     handleChange(event) {
@@ -15,7 +17,7 @@ export default class SampleForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value + '\n' + 'selected: ' + this.state.selection);
+        alert('A name was submitted: ' + this.state.value + '\n' + 'selected: ' + this.state.selection + '\n' + 'Uncontrolled: ' + this.uncontrolled_text.current.value);
         event.preventDefault();
     }
 
@@ -36,6 +38,12 @@ export default class SampleForm extends React.Component {
                         <option value="coconut">Coconut</option>
                         <option value="mango">Mango</option>
                     </select>
+                </label>
+                
+                <br/>
+                
+                <label>
+                    Uncontrolled sample: <input type="text" ref={this.uncontrolled_text} />
                 </label>
 
                 <input type="submit" value="Submit" />
