@@ -4,6 +4,8 @@ import './App.css';
 import Clock from './components/clock/clock';
 import UsersList from './components/users/list';
 import {GetUsers} from './services/users';
+import SampleForm from './components/form/form';
+
 
 function App() {
   const users = GetUsers();
@@ -16,6 +18,9 @@ function App() {
 
       <br/>
       <UsersList users={users}/>
+
+      <br/>
+      <SampleForm />
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
