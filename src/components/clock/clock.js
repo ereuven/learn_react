@@ -1,5 +1,5 @@
 import React from 'react';
-import './clock.css';
+import styles from './clock.module.css';
 import * as SomeComponents from './some_components.js'
 
 class Clock extends React.Component {
@@ -51,11 +51,11 @@ class Clock extends React.Component {
     }
 
     render() {
-        const ticks = !!this.props.ticks ? <span className='ticks'>ticks: {this.state.ticks}</span> : null;
+        const ticks = !!this.props.ticks ? <span className={styles.ticks}>ticks: {this.state.ticks}</span> : null;
 
         return (
             // <div className='clock' onClick={this.handleClick2.bind(this, this.num)} >
-            <div className='clock' onClick={(e) => this.handleClick(e, this.num)} >
+            <div className={styles.clock} onClick={(e) => this.handleClick(e, this.num)} >
                 {/* <i class="clock-text" style={{ color: this.props.color }}>{this.get_date_str()} {this.get_time_str()}</i>&nbsp; */}
                 <SomeComponents.FormattedDateTime color={this.props.color} now={this.state.now} />&nbsp;
                 {ticks}
