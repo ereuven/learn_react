@@ -1,5 +1,6 @@
 import React from 'react';
 import './clock.css';
+import {FormattedDateTime, WarningComponent} from './some_components.js'
 
 class Clock extends React.Component {
     constructor(props) {
@@ -40,15 +41,6 @@ class Clock extends React.Component {
     //     return !!this.state.now ? this.state.now.toLocaleTimeString() : 'rendering...';
     // }
 
-    FormattedDateTime(props) {
-        const now = props.now;
-
-        const date_str = !!now ? now.toLocaleDateString() : 'rendering...';
-        const time_str = !!now ? now.toLocaleTimeString() : 'rendering...';
-
-        return (<i class="clock-text" style={{ color: props.color }}>{date_str} {time_str}</i>);
-    }
-
     handleClick(e, num){
         e.preventDefault();
         alert(this.props.color + ' number: ' + num);
@@ -59,12 +51,17 @@ class Clock extends React.Component {
     }
 
     render() {
+        const ticks = !!this.props.ticks ? <span className='ticks'>ticks: {this.state.ticks}</span> : null;
+
         return (
             // <div className='clock' onClick={this.handleClick2.bind(this, this.num)} >
             <div className='clock' onClick={(e) => this.handleClick(e, this.num)} >
                 {/* <i class="clock-text" style={{ color: this.props.color }}>{this.get_date_str()} {this.get_time_str()}</i>&nbsp; */}
-                <this.FormattedDateTime color={this.props.color} now={this.state.now} />&nbsp;
-                <span class='ticks'>ticks: {this.state.ticks}</span>
+                <FormattedDateTime color={this.props.color} now={this.state.now} />&nbsp;
+                {ticks}
+                <span style={{marginLeft: '1em'}}>(ticks is {!!this.props.ticks ? 'displayed' : 'not displayed'})</span>
+                {this.props.color == 'red' && <h3>color is red</h3>}
+                <WarningComponent warn={!this.props.ticks}/>
             </div>
         );
     }

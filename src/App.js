@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Clock color="#2f2bab" num="1"/>
-      <Clock color="red" num="2"/>
+      <Clock color="red" num="2" ticks={true}/>
       <Clock/>
 
       {/* <header className="App-header">
