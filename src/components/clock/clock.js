@@ -1,6 +1,6 @@
 import React from 'react';
 import './clock.css';
-import {FormattedDateTime, WarningComponent} from './some_components.js'
+import * as SomeComponents from './some_components.js'
 
 class Clock extends React.Component {
     constructor(props) {
@@ -57,11 +57,11 @@ class Clock extends React.Component {
             // <div className='clock' onClick={this.handleClick2.bind(this, this.num)} >
             <div className='clock' onClick={(e) => this.handleClick(e, this.num)} >
                 {/* <i class="clock-text" style={{ color: this.props.color }}>{this.get_date_str()} {this.get_time_str()}</i>&nbsp; */}
-                <FormattedDateTime color={this.props.color} now={this.state.now} />&nbsp;
+                <SomeComponents.FormattedDateTime color={this.props.color} now={this.state.now} />&nbsp;
                 {ticks}
                 <span style={{marginLeft: '1em'}}>(ticks is {!!this.props.ticks ? 'displayed' : 'not displayed'})</span>
-                {this.props.color == 'red' && <h3>color is red</h3>}
-                <WarningComponent warn={!this.props.ticks}/>
+                {this.props.color === 'red' && <h3>color is red</h3>}
+                <SomeComponents.WarningComponent warn={!this.props.ticks}/>
             </div>
         );
     }

@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const element = <h1>Hello world{"!"}</h1>;
+//const element = <h1>Hello world{"!"}</h1>;
 
 // function tick(){
 //   const element = (

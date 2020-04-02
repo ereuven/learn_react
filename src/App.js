@@ -1,14 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import Clock from './components/clock/clock';
+import UsersList from './components/users/list';
+import {GetUsers} from './services/users';
 
 function App() {
+  const users = GetUsers();
+
   return (
     <div className="App">
       <Clock color="#2f2bab" num="1"/>
       <Clock color="red" num="2" ticks={true}/>
       <Clock/>
+
+      <br/>
+      <UsersList users={users}/>
 
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
